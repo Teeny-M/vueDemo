@@ -9,71 +9,7 @@
   <script src="jquery.min.js"></script>
 </head>
 <body>
-  <ul id="app">
-    <li v-for="n in pageCount" v-bind:class="activeNumber === n ? 'active' : ''">
-      <a href="javascripit:;">{{ n }}</a>
-    </li>
-  </ul>
-  
-  <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        activeNumber:8,
-        pageCount:10
-      }
-    })
-  </script>
-  <hr>
-  <div id="app-2">
-    <h5>创建信息</h5>
-    <div><label for="name">name</label><input type="text" v-model="newPerson.name" id="name"></div>
-    <div><label for="age">age</label><input type="text" v-model="newPerson.age" id="age"></div>
-    <div>
-      <label for="sex">sex</label>
-      <select v-model="newPerson.sex">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label></label>
-      <button v-on:click="creatPerson">Create</button>
-    </div>
-    <table>
-      <tr><td>name</td><td>age</td><td>sex</td><td>操作</td></tr>
-      <tr v-for="(item,index) in peoples"><td>{{item.name}}</td><td>{{item.age}}</td><td>{{item.sex}}</td><td><button @click="deletePerson(index)">Delete</button></td></tr>
-    </table>
-  </div>
-  <script>
-    var app2 = new Vue({
-      el:"#app-2",
-      data:{
-        newPerson:{
-          name:"",
-          age:"",
-          sex:"Male",
-        },
-        peoples:[]
-      },
-      methods:{
-        creatPerson:function() {
-          
-          if(this.newPerson.age<=0 || this.newPerson.age ==""){
-            alert("请检查年龄或名字");
-            return false;
-          }
-          this.peoples.push(this.newPerson);
-          this.newPerson = {name: '', age: 0, sex: 'Male'}
-        },
-        deletePerson:function(index) {
-          this.peoples.splice(index,1);
-        }
-      }
-    })
-  </script>
-  <hr>
-  <div id="app-3">
+  <div id="app">
     <section>
       <ul class="ilist">
         <li v-for="item in notes">
@@ -114,39 +50,7 @@
     </div>
     <div class="gray" v-bind:class="{ mdshow: isActive }" v-on:click="isActive=false"></div>
   </div>
-  <script>
-    var app3 = new Vue({
-      el:"#app-3",
-      data:{
-        newNote:{
-          title:"",
-          name:"",
-          email:"",
-          content:""
-        },
-        notes:[],
-        isActive:false
-      },
-      mounted:function(){
-        this.$nextTick(function () {
-          this.queryData();
-        });
-      },
-      methods:{
-        queryData:function () {
-          localStorage.messages?this.notes=JSON.parse(localStorage.messages):this.notes=[];
-        },
-        noteAdd:function() {
-          this.notes.push(this.newNote);
-          this.newNote = {title: '', name: '', email: '',content:''};
-          localStorage.messages=JSON.stringify(this.notes);
-          this.isActive=false;
-
-        }
-      }
-
-    });
-  </script>
+  <script src="src/note.js"></script>
 
 
 </body>
