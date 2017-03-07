@@ -134,7 +134,7 @@
       },
       methods:{
         queryData:function () {
-          localStorage.messages?this.notes=JSON.parse(localStorage.messages):[];
+          localStorage.messages?this.notes=JSON.parse(localStorage.messages):this.notes=[];
         },
         noteAdd:function() {
           this.notes.push(this.newNote);
