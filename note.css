@@ -2,10 +2,9 @@
 margin-left:auto;
 margin-right:auto;
 width: 400px;
-background: #D2E9FF;
+background: #f8a09c;
 padding: 20px 20px 20px 20px;
 font: 12px Arial, Helvetica, sans-serif;
-color: #666;
 position: fixed;
 left: 50%;
 top:50%;
@@ -14,14 +13,17 @@ top:50%;
 transform: translate(-50%,-50%);
 z-index: 200;
 display: none;
+color: #fff;
+border-radius: 2px;
 }
 .elegant-aero h1 {
 font: 24px "Trebuchet MS", Arial, Helvetica, sans-serif;
 padding: 10px 10px 10px 20px;
 display: block;
-background: #C0E1FF;
-border-bottom: 1px solid #B8DDFF;
+background: #f4726d;
+border-bottom: 1px solid #ddd;
 margin: -20px -20px 15px;
+border-radius: 2px 2px 0px 0px;
 }
 .elegant-aero h1>span {
 display: block;
@@ -30,7 +32,7 @@ font-size: 11px;
 .elegant-aero label>span {
 float: left;
 margin-top: 10px;
-color: #5E5E5E;
+color: #f1f1f1;
 }
 .elegant-aero label {
 display: block;
@@ -48,7 +50,7 @@ font-weight: bold;
 color: #888;
 width: 70%;
 padding: 0px 0px 0px 5px;
-border: 1px solid #C5E2FF;
+border: 1px solid #eee;
 background: #FBFBFB;
 outline: 0;
 -webkit-box-shadow:inset 0px 1px 6px #ECF3F5;
@@ -64,8 +66,7 @@ padding: 5px 0px 0px 5px;
 width: 70%;
 }
 .elegant-aero select {
-background: #fbfbfb url('down-arrow.png') no-repeat right;
-background: #fbfbfb url('down-arrow.png') no-repeat right;
+background: #fbfbfb;
 appearance:none;
 -webkit-appearance:none;
 -moz-appearance: none;
@@ -75,7 +76,7 @@ width: 70%;
 }
 .elegant-aero .button{
 padding: 10px 30px 10px 30px;
-background: #66C1E4;
+background: #f4645f;
 border: none;
 color: #FFF;
 box-shadow: 1px 1px 1px #4C6E91;
@@ -84,10 +85,65 @@ box-shadow: 1px 1px 1px #4C6E91;
 text-shadow: 1px 1px 1px #5079A3;
 }
 .elegant-aero .button:hover{
-background: #3EB1DD;
+background: #000;
 }
 
-.ilist li{display: inline-block;float: left;width: 200px;border: 1px solid #ddd;margin-right: 10px;min-height: 100px;}
-.addNew span{text-align: center;display: block;font-size: 2em;margin-top: 36px;cursor:pointer;}
-.gray{height: 100%;width: 100%;background: #ddd;position: fixed;top:0;left: 0;opacity: 0.7;z-index: 199;display: none;}
+.note{display: inline-block;float: left;width: 200px;border: 1px solid #ddd;margin: 10px;min-height: 100px;box-shadow: 3px 2px 4px #ddd;padding: 20px;position: relative;}
+.note h1{text-align: center;font-weight:normal;}
+.del-note{position: absolute;right: -10px;top: -10px;font-size: 30px;width: 50px;height: 50px;line-height: 50px;text-align: center;cursor: pointer;
+  transform:rotate(45deg);
+  -ms-transform:rotate(45deg);   /* IE 9 */
+  -moz-transform:rotate(45deg);  /* Firefox */
+  -webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+  -o-transform:rotate(45deg);  /* Opera */
+  transition: transform 1s;
+  -moz-transition: transform 1s; /* Firefox 4 */
+  -webkit-transition: transform 1s; /* Safari 和 Chrome */
+  -o-transition: transform 1s; /* Opera */
+}
+.note .on{
+  color: red;
+  transform:rotate(135deg);
+  -ms-transform:rotate(135deg);   /* IE 9 */
+  -moz-transform:rotate(135deg);  /* Firefox */
+  -webkit-transform:rotate(135deg); /* Safari 和 Chrome */
+  -o-transform:rotate(135deg);  /* Opera */
+}
+.content{height: 140px;overflow: hidden;}
+.iname{text-align: right;}
+.iname span{color: #f4645f;}
+.addNew{color: #fff;text-align: center;height: 192px;overflow: hidden;}
+.addNew p{font-size: 1.6em;padding: 6px 20px;cursor:pointer;background: #f4645f;border-radius: 2px;}
+.addNew:before{
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -9px;
+}
+.addNew p{
+  display: inline-block;
+  vertical-align: middle;
+}
+.gray,.md-del-warp{height: 100%;width: 100%;background: #ddd;position: fixed;top:0;left: 0;opacity: 0.7;z-index: 199;display: none;}
+.md-del-con{
+  width: 400px;
+  background: #FFF;
+  padding: 20px 20px 30px 20px;
+  font: 12px Arial, Helvetica, sans-serif;
+  color: #333;
+  position: fixed;
+  left: 50%;
+  top:50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: 200;
+  display: none;
+  border-radius: 2px;
+  text-align: center;
+}
+.md-del-con p{padding-top: 20px;}
+.md-del-con p span{padding: 10px 40px;margin: 0 10px;border: 1px solid #f4645f;cursor: pointer;}
+.md-del-con p span:hover{background: #f4645f;}
 .mdshow{display: block;}

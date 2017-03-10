@@ -10,48 +10,53 @@
 </head>
 <body>
   <div id="app">
-    <section>
-      <ul class="ilist">
-        <li v-for="item in notes">
-          <h1>{{item.title}}</h1>
-          <p v-text="item.name"></p>
-          <p v-text="item.email"></p>
-          <p v-text="item.content"></p>
-        </li>
-        <li class="addNew"><span v-on:click="isActive=true">新增</span></li>
-      </ul>
-    </section>
+    <div class="notes-wrap clearfix">
+      <section class="note" v-for="(item,index) in notes">
+        <h1>{{item.title}}</h1>
+        <p v-text="item.content" class="content"></p>
+        <p v-text="item.email"></p>
+        <p class="iname"><span>{{item.name}}</span>·{{item.itime}}</p>
+        <span class="del-note" v-on:mouseenter="changeFlag(item,true)" v-bind:class="{ on: item.del}" v-on:mouseout="changeFlag(item,false)" v-on:click="delButton(index)">+</span>
+      </section>
+      <section class="note addNew">
+        <p v-on:click="isActive=true" v-html="addName"></p>
+      </section>
+    </div>
     <div>
       <form action="" method="post" class="elegant-aero"  v-bind:class="{ mdshow: isActive }">
-      <h1>Contact Form
-        <span>Please fill all the texts in the fields.</span>
-      </h1>
-      <label>
-        <span>Your Name :</span>
-        <input id="name" type="text" name="name" placeholder="Your Full Name" v-model="newNote.title"/>
-      </label>
-      <label>
-        <span>Your Email :</span>
-        <input id="email" type="email" name="email" placeholder="Valid Email Address" v-model="newNote.email"/>
-      </label>
-      <label>
-        <span>Message :</span>
-        <textarea id="message" name="message" placeholder="Your Message to Us" v-model="newNote.content"></textarea>
-      </label>
-      <label>
-        <span>Subject :</span>
-        <input id="" type="text" name="" placeholder="Your Full Name" v-model="newNote.name"/>
-      </label>
-      <label>
-        <span>&nbsp;</span>
-        <input type="button" class="button" value="Send" v-on:click="noteAdd"/>
-      </label>
+        <h1>Contact Form
+          <span>Please fill all the texts in the fields.</span>
+        </h1>
+        <label>
+          <span>Subject :</span>
+          <input id="name" type="text" name="name" placeholder="Subject Name" v-model="newNote.title"/>
+        </label>
+        <label>
+          <span>Your Email :</span>
+          <input id="email" type="email" name="email" placeholder="Valid Email Address" v-model="newNote.email"/>
+        </label>
+        <label>
+          <span>Message :</span>
+          <textarea id="message" name="message" placeholder="Your Message to Us" v-model="newNote.content"></textarea>
+        </label>
+        <label>
+          <span>Your Name :</span>
+          <input id="" type="text" name="" placeholder="Your Full Name" v-model="newNote.name"/>
+        </label>
+        <label>
+          <span>&nbsp;</span>
+          <input type="button" class="button" value="Send" v-on:click="noteAdd"/>
+        </label>
       </form>
     </div>
     <div class="gray" v-bind:class="{ mdshow: isActive }" v-on:click="isActive=false"></div>
+    <div class="md-del-warp" v-bind:class="{ mdshow: delMoudle }">
+      <div class="md-del-con" v-bind:class="{ mdshow: delMoudle }">
+        <h2>确定要删除吗？</h2>
+        <p><span class="yes" v-on:click="delNote">是</span><span class="no" v-on:click="delMoudle=false">否</span></p>
+      </div>
+    </div>
   </div>
   <script src="src/note.js"></script>
-
-
 </body>
 </html>
