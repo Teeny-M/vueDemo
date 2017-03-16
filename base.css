@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0} 
-body{font:14px"微软雅黑","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;font-size: 62.5%;} 
+body{font:14px "微软雅黑","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;font-size: 62.5%;} 
 a{color:#616161;text-decoration:none} 
 a:hover{color:#eb6664;} 
 em{font-style:normal} 
@@ -12,6 +12,5 @@ input,select,button,textarea{outline:none;}
 .left{float: left;}
 .right{float: right;}
 .clearfix:after{content: "";clear: both;display: block;visibility: hidden;}
-
 * html .clearfix{zoom:1;}
 *_html .clearfix{zoom:1;}

@@ -20,11 +20,25 @@ var app = new Vue({
     });
   },
   methods:{
+    checkdata:function(){
+      var res=[];
+      res.code=0;
+      if(this.newNote.title=="" || this.newNote.name=="" || this.newNote.email=="" || this.newNote.content==""){
+          res.code=1,
+          res.message="请认真填写每一项！"
+        }
+      return res;
+    },
     queryData:function () {
       localStorage.messages?this.notes=JSON.parse(localStorage.messages):this.notes=[];
       this.notes.length!==0?this.addName="新增":this.addName="没有留言，<br>赶紧来添加吧！";
     },
     noteAdd:function() {
+      var res=this.checkdata()
+      if(res.code){
+        alert(res.message);
+        return;
+      };
       this.newNote.itime=this.getNowFormatDate();
       this.notes.push(this.newNote);
       this.newNote = {title: '', itime:"", name: '', email: '',content:''};
